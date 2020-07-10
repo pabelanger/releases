@@ -1,0 +1,312 @@
+{
+    "metadata": {
+        "namespace": "openvswitch",
+        "name": "openvswitch",
+        "version": "1.1.1",
+        "license": [],
+        "description": null,
+        "repository": "https://github.com/ansible-collections/openvswitch.openvswitch",
+        "documentation": null,
+        "homepage": null,
+        "issues": null,
+        "authors": [
+            "Ansible Network Community (ansible-network)"
+        ],
+        "tags": [
+            "networking",
+            "vswitch",
+            "bridge",
+            "vlan"
+        ],
+        "license_file": "LICENSE",
+        "readme": "README.md",
+        "dependencies": {
+            "ansible.netcommon": "*"
+        }
+    },
+    "docs_blob": {
+        "collection_readme": {
+            "name": "README.md",
+            "html": "<h1>Open vSwitch Collection</h1>\n<p><a href=\"https://dashboard.zuul.ansible.com/t/ansible/project/github.com/ansible-collections/openvswitch.openvswitch\"><img alt=\"CI\" src=\"https://zuul-ci.org/gated.svg\"></a> </p>\n<p>The Open vSwitch collection includes a variety of Ansible content to help automate the management of Open vSwitch.</p>\n<h3>Supported connections</h3>\n<p>The Open vSwitch collection supports local connections only.</p>\n<h2>Included content</h2>\n<p>Click the <code>Content</code> button to see the list of content included in this collection.</p>\n\n\n<h2>Modules</h2>\n<table>\n<thead>\n<tr>\n<th>Name</th>\n<th>Description</th>\n</tr>\n</thead>\n\n<tr>\n<td><a href=\"https://github.com/ansible-collections/openvswitch.openvswitch/blob/master/docs/openvswitch.openvswitch.openvswitch_bridge.rst\">openvswitch.openvswitch.openvswitch_bridge</a></td>\n<td>Manage Open vSwitch bridges</td>\n</tr>\n<tr>\n<td><a href=\"https://github.com/ansible-collections/openvswitch.openvswitch/blob/master/docs/openvswitch.openvswitch.openvswitch_db.rst\">openvswitch.openvswitch.openvswitch_db</a></td>\n<td>Configure open vswitch database.</td>\n</tr>\n<tr>\n<td><a href=\"https://github.com/ansible-collections/openvswitch.openvswitch/blob/master/docs/openvswitch.openvswitch.openvswitch_port.rst\">openvswitch.openvswitch.openvswitch_port</a></td>\n<td>Manage Open vSwitch ports</td>\n</tr>\n<tr>\n<td></td>\n<td></td>\n</tr>\n\n</table>\n<h2>Installing this collection</h2>\n<p>You can install the Open vSwitch collection with the Ansible Galaxy CLI:</p>\n<pre><code>ansible-galaxy collection install openvswitch.openvswitch\n</code></pre>\n<p>You can also include it in a <code>requirements.yml</code> file and install it with <code>ansible-galaxy collection install -r requirements.yml</code>, using the format:</p>\n<pre><code>---\ncollections:\n  - name: openvswitch.openvswitch\n    version: 0.0.1\n</code></pre>\n\n<h2>Using this collection</h2>\n<p>You can call modules by their Fully Qualified Collection Namespace (FQCN), such as <code>openvswitch.openvswitch.openvswitch_port</code>.\nThe following example task replaces configuration changes in the existing configuration on a Open vSwitch network device, using the FQCN:</p>\n<pre><code>---\n  - name: Creates port eth2 on bridge br-ex\n    openvswitch.openvswitch.openvswitch_port:\n      bridge: br-ex\n      port: eth2\n    state: present\n</code></pre>\n\n<p>Alternately, you can call modules by their short name if you list the <code>openvswitch.openvswitch</code> collection in the playbook's <code>collections</code>, as follows:</p>\n<pre><code>---\n  collections:\n    - openvswitch.openvswitch\n\n  tasks:\n    - name: &quot;Create a bridge named br-int&quot;\n      openvswitch_bridge:\n        bridge: br-int\n        state: present\n</code></pre>\n\n<h3>See Also:</h3>\n<ul>\n<li><a href=\"https://docs.ansible.com/ansible/latest/user_guide/collections_using.html\">Ansible Using collections</a> for more details.</li>\n</ul>\n<h2>Contributing to this collection</h2>\n<p>We welcome community contributions to this collection. If you find problems, please open an issue or create a PR against the <a href=\"https://github.com/ansible-collections/openvswitch.openvswitch\">Open vSwitch collection repository</a>.</p>\n<p>You can also join us on:</p>\n<ul>\n<li>Freenode IRC - <code>#ansible-network</code> Freenode channel</li>\n<li>Slack - https://ansiblenetwork.slack.com</li>\n</ul>\n<p>See the <a href=\"https://docs.ansible.com/ansible/latest/community/index.html\">Ansible Community Guide</a> for details on contributing to Ansible.</p>\n<h2>Changelogs</h2>\n\n\n<h2>Roadmap</h2>\n\n\n<h2>More information</h2>\n<ul>\n<li><a href=\"https://docs.ansible.com/ansible/latest/network/getting_started/network_resources.html\">Ansible network resources</a></li>\n<li><a href=\"https://github.com/ansible-collections/overview\">Ansible Collection overview</a></li>\n<li><a href=\"https://docs.ansible.com/ansible/latest/user_guide/index.html\">Ansible User guide</a></li>\n<li><a href=\"https://docs.ansible.com/ansible/latest/dev_guide/index.html\">Ansible Developer guide</a></li>\n<li><a href=\"https://docs.ansible.com/ansible/latest/community/code_of_conduct.html\">Ansible Community code of conduct</a></li>\n</ul>\n<h2>Licensing</h2>\n<p>GNU General Public License v3.0 or later.</p>\n<p>See <a href=\"https://www.gnu.org/licenses/gpl-3.0.txt\">LICENSE</a> to see the full text.</p>"
+        },
+        "documentation_files": [],
+        "contents": [
+            {
+                "content_name": "openvswitch_db",
+                "content_type": "module",
+                "doc_strings": {
+                    "doc": {
+                        "author": "Mark Hamilton (@markleehamilton) <mhamilton@vmware.com>",
+                        "description": [
+                            "Set column values in record in database table."
+                        ],
+                        "filename": "/tmp/tmp0bgr3q7z/ansible_collections/openvswitch/openvswitch/plugins/modules/openvswitch_db.py",
+                        "module": "openvswitch_db",
+                        "options": [
+                            {
+                                "name": "col",
+                                "description": [
+                                    "Identifies the column in the record."
+                                ],
+                                "required": true
+                            },
+                            {
+                                "name": "key",
+                                "description": [
+                                    "Identifies the key in the record column, when the column is a map type."
+                                ],
+                                "required": false
+                            },
+                            {
+                                "name": "record",
+                                "description": [
+                                    "Identifies the record in the table."
+                                ],
+                                "required": true
+                            },
+                            {
+                                "name": "state",
+                                "choices": [
+                                    "present",
+                                    "absent"
+                                ],
+                                "default": "present",
+                                "description": [
+                                    "Configures the state of the key. When set to I(present), the I(key) and I(value) pair will be set on the I(record) and when set to I(absent) the I(key) will not be set."
+                                ],
+                                "required": false
+                            },
+                            {
+                                "name": "table",
+                                "description": [
+                                    "Identifies the table in the database."
+                                ],
+                                "required": true
+                            },
+                            {
+                                "name": "timeout",
+                                "default": 5,
+                                "description": [
+                                    "How long to wait for ovs-vswitchd to respond"
+                                ],
+                                "required": false
+                            },
+                            {
+                                "name": "value",
+                                "description": [
+                                    "Expected value for the table, record, column and key."
+                                ],
+                                "required": true
+                            }
+                        ],
+                        "requirements": [
+                            "ovs-vsctl >= 2.3.3"
+                        ],
+                        "short_description": "Configure open vswitch database.",
+                        "version_added": "1.0.0"
+                    },
+                    "examples": "\n# Increase the maximum idle time to 50 seconds before pruning unused kernel\n# rules.\n- openvswitch.openvswitch.openvswitch_db:\n    table: open_vswitch\n    record: .\n    col: other_config\n    key: max-idle\n    value: 50000\n\n# Disable in band copy\n- openvswitch.openvswitch.openvswitch_db:\n    table: Bridge\n    record: br-int\n    col: other_config\n    key: disable-in-band\n    value: true\n\n# Remove in band key\n- openvswitch.openvswitch.openvswitch_db:\n    state: present\n    table: Bridge\n    record: br-int\n    col: other_config\n    key: disable-in-band\n\n# Mark port with tag 10\n- openvswitch.openvswitch.openvswitch_db:\n    table: Port\n    record: port0\n    col: tag\n    value: 10\n",
+                    "metadata": {
+                        "status": [
+                            "preview"
+                        ],
+                        "supported_by": "community"
+                    },
+                    "return": null
+                },
+                "readme_file": null,
+                "readme_html": null
+            },
+            {
+                "content_name": "openvswitch_port",
+                "content_type": "module",
+                "doc_strings": {
+                    "doc": {
+                        "author": "David Stygstra (@stygstra)",
+                        "description": [
+                            "Manage Open vSwitch ports"
+                        ],
+                        "filename": "/tmp/tmp0bgr3q7z/ansible_collections/openvswitch/openvswitch/plugins/modules/openvswitch_port.py",
+                        "module": "openvswitch_port",
+                        "options": [
+                            {
+                                "name": "bridge",
+                                "description": [
+                                    "Name of bridge to manage"
+                                ],
+                                "required": true
+                            },
+                            {
+                                "name": "external_ids",
+                                "default": {},
+                                "description": [
+                                    "Dictionary of external_ids applied to a port."
+                                ]
+                            },
+                            {
+                                "name": "port",
+                                "description": [
+                                    "Name of port to manage on the bridge"
+                                ],
+                                "required": true
+                            },
+                            {
+                                "name": "set",
+                                "description": [
+                                    "Set a single property on a port."
+                                ]
+                            },
+                            {
+                                "name": "state",
+                                "choices": [
+                                    "present",
+                                    "absent"
+                                ],
+                                "default": "present",
+                                "description": [
+                                    "Whether the port should exist"
+                                ]
+                            },
+                            {
+                                "name": "tag",
+                                "description": [
+                                    "VLAN tag for this port. Must be a value between 0 and 4095."
+                                ]
+                            },
+                            {
+                                "name": "timeout",
+                                "default": 5,
+                                "description": [
+                                    "How long to wait for ovs-vswitchd to respond"
+                                ]
+                            }
+                        ],
+                        "requirements": [
+                            "ovs-vsctl"
+                        ],
+                        "short_description": "Manage Open vSwitch ports",
+                        "version_added": "1.0.0"
+                    },
+                    "examples": "\n# Creates port eth2 on bridge br-ex\n- openvswitch.openvswitch.openvswitch_port:\n    bridge: br-ex\n    port: eth2\n    state: present\n\n# Creates port eth6\n- openvswitch.openvswitch.openvswitch_port:\n    bridge: bridge-loop\n    port: eth6\n    state: present\n    set: Interface eth6\n\n# Creates port vlan10 with tag 10 on bridge br-ex\n- openvswitch.openvswitch.openvswitch_port:\n    bridge: br-ex\n    port: vlan10\n    tag: 10\n    state: present\n    set: Interface vlan10\n\n# Assign interface id server1-vifeth6 and mac address 00:00:5E:00:53:23\n# to port vifeth6 and setup port to be managed by a controller.\n- openvswitch.openvswitch.openvswitch_port:\n    bridge: br-int\n    port: vifeth6\n    state: present\n  args:\n    external_ids:\n      iface-id: '{{ inventory_hostname }}-vifeth6'\n      attached-mac: 00:00:5E:00:53:23\n      vm-id: '{{ inventory_hostname }}'\n      iface-status: active\n",
+                    "metadata": {
+                        "status": [
+                            "preview"
+                        ],
+                        "supported_by": "community"
+                    },
+                    "return": null
+                },
+                "readme_file": null,
+                "readme_html": null
+            },
+            {
+                "content_name": "openvswitch_bridge",
+                "content_type": "module",
+                "doc_strings": {
+                    "doc": {
+                        "author": "David Stygstra (@stygstra)",
+                        "description": [
+                            "Manage Open vSwitch bridges"
+                        ],
+                        "filename": "/tmp/tmp0bgr3q7z/ansible_collections/openvswitch/openvswitch/plugins/modules/openvswitch_bridge.py",
+                        "module": "openvswitch_bridge",
+                        "options": [
+                            {
+                                "name": "bridge",
+                                "description": [
+                                    "Name of bridge or fake bridge to manage"
+                                ],
+                                "required": true
+                            },
+                            {
+                                "name": "external_ids",
+                                "description": [
+                                    "A dictionary of external-ids. Omitting this parameter is a No-op. To  clear all external-ids pass an empty value."
+                                ]
+                            },
+                            {
+                                "name": "fail_mode",
+                                "choices": [
+                                    "secure",
+                                    "standalone"
+                                ],
+                                "description": [
+                                    "Set bridge fail-mode. The default value (None) is a No-op."
+                                ]
+                            },
+                            {
+                                "name": "parent",
+                                "description": [
+                                    "Bridge parent of the fake bridge to manage"
+                                ]
+                            },
+                            {
+                                "name": "set",
+                                "description": [
+                                    "Run set command after bridge configuration. This parameter is non-idempotent, play will always return I(changed) state if present"
+                                ]
+                            },
+                            {
+                                "name": "state",
+                                "choices": [
+                                    "present",
+                                    "absent"
+                                ],
+                                "default": "present",
+                                "description": [
+                                    "Whether the bridge should exist"
+                                ]
+                            },
+                            {
+                                "name": "timeout",
+                                "default": 5,
+                                "description": [
+                                    "How long to wait for ovs-vswitchd to respond"
+                                ]
+                            },
+                            {
+                                "name": "vlan",
+                                "description": [
+                                    "The VLAN id of the fake bridge to manage (must be between 0 and 4095). This parameter is required if I(parent) parameter is set."
+                                ]
+                            }
+                        ],
+                        "requirements": [
+                            "ovs-vsctl"
+                        ],
+                        "short_description": "Manage Open vSwitch bridges",
+                        "version_added": "1.0.0"
+                    },
+                    "examples": "\n# Create a bridge named br-int\n- openvswitch.openvswitch.openvswitch_bridge:\n    bridge: br-int\n    state: present\n\n# Create a fake bridge named br-int within br-parent on the VLAN 405\n- openvswitch.openvswitch.openvswitch_bridge:\n    bridge: br-int\n    parent: br-parent\n    vlan: 405\n    state: present\n\n# Create an integration bridge\n- openvswitch.openvswitch.openvswitch_bridge:\n    bridge: br-int\n    state: present\n    fail_mode: secure\n  args:\n    external_ids:\n      bridge-id: br-int\n",
+                    "metadata": {
+                        "status": [
+                            "preview"
+                        ],
+                        "supported_by": "community"
+                    },
+                    "return": null
+                },
+                "readme_file": null,
+                "readme_html": null
+            }
+        ]
+    },
+    "contents": [
+        {
+            "name": "openvswitch_db",
+            "content_type": "module",
+            "description": "Configure open vswitch database."
+        },
+        {
+            "name": "openvswitch_port",
+            "content_type": "module",
+            "description": "Manage Open vSwitch ports"
+        },
+        {
+            "name": "openvswitch_bridge",
+            "content_type": "module",
+            "description": "Manage Open vSwitch bridges"
+        }
+    ],
+    "custom_license": null
+}
